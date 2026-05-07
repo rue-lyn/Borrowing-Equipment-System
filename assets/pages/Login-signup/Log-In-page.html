@@ -11,7 +11,7 @@
     <header id="header"> 
             
             <form class="admin">
-            <button class="admin-btn" type="submit"><a href="/assets/pages/admin.html">Admin</a></button>
+            <a href="/assets/pages/admin.html" class="admin-btn">Admin</a></button>
             
                 
             </form> 
@@ -31,18 +31,19 @@
             <form action="/index.html" class="form sign-in">
                 <h1 id="Login">Login</h1>
                 <input type="email" placeholder="Email Address" required>
+                <small id="emailError" class="error-text"></small>
+
                 <input type="password" placeholder="Password" required>
-                <button class="login-btn" type="submit"><a href="/index.html">Login</a></button>
+                <small id="passwordError" class="error-text"></small>
+
+                <button class="login-btn" type="submit">Login</button>
                
                 <p class="switch">Don't have an account? <a href="Sign-In-page.html">Sign up</a>  </p>
                    
                 <p class="switch">For Staffer, Staff, Faculty Member.  <a href="Sign-In-2-page.html"><br>Sign Up here!</a></p>
-                
-
-                
             </form> 
         </div>
-    
-</main>
+    </main>
+<script src="/assets/js/Login.js"></script>
 </body>
 </html>

@@ -68,7 +68,13 @@ a {
 }
 
 
-
+.error-text {
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
 
 .contain {
     width: 100%;
@@ -81,7 +87,13 @@ a {
     box-sizing: border-box;
 }
 
-
+input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 
 .form button:hover,
 .admin button:hover {
@@ -127,10 +139,11 @@ button {
 }
 
 .admin-btn {
-    width: auto;
-    padding: 6px 14px;
-    font-family: Playfair Display;
-    font-size: 30px;
+    text-decoration: none;
+    background: #444;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 4px;
 }
 
 .admin-btn:hover {
