@@ -1,37 +1,17 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    // 1. Stop the form from submitting automatically
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
 
-    // 2. Get the values
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            // e.preventDefault() - pinipigilan nito ang pag-refresh ng page
+            e.preventDefault();
 
-    // Reset errors
-    emailError.innerText = "";
-    passwordError.innerText = "";
-
-    let hasError = false;
-
-    // 3. Verification Logic
-    // Check if email is a valid format
-    if (!email.includes("@")) {
-        emailError.innerText = "Please enter a valid email address.";
-        hasError = true;
-    }
-
-    // Check if password is long enough
-    if (password.length < 8) {
-        passwordError.innerText = "Password must be at least 8 characters.";
-        hasError = true;
-    }
-
-    // 4. If everything is correct
-    if (!hasError) {
-        alert("Verification Successful! Redirecting...");
-        
-        // Go up 3 levels to find index.html at the root
-        window.location.href = "../../../index.html"; 
+            // Dito niyo pwedeng ipaliwanag sa defense na 
+            // "The system captures the credentials and proceeds to the security layer."
+            console.log("Login submitted, moving to verification...");
+            
+            // Redirect sa Verification Page
+            window.location.href = 'Verification-page.html';
+        });
     }
 });
