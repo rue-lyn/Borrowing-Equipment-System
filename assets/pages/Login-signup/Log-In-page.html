@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SportsEQ - Login</title>
-    <link rel="stylesheet" href="/assets/styles/Login.css">
+    
+    <link rel="stylesheet" href="../../styles/Login.css">
 </head>
 <body>
 
     <header id="header"> 
-        <a href="/assets/pages/admin.html" class="admin-btn">Admin</a>
+        <a href="../admin.html" class="admin-btn">Admin</a>
         <h1>Borrow Equipment Fast and Easy</h1>
     </header>
 
@@ -21,17 +22,19 @@
         <div class="contain">   
             <form class="form sign-in" id="loginForm">
                 <h2 id="Login">Login</h2>
-                <input type="email" id="emailInput" placeholder="Email Address" required>
-                <input type="password" id="passInput" placeholder="Password" required>
+                
+                <input type="email" id="emailInput" name="email" placeholder="Email Address" required>
+                <input type="password" id="passInput" name="password" placeholder="Password" required>
                 
                 <button class="login-btn" type="submit">Login</button>
                
-                <p class="switch">Don't have an account? <a href="/assets/pages/Login-signup/Sign-In-page.html">Sign up</a></p>
-                <p class="switch">For Staffer, Staff, Faculty Member: <br><a href="/assets/pages/Login-signup/Sign-In-2-page.html">Sign Up here!</a></p>
+                <p class="switch">Don't have an account? <a href="Sign-In-page.html">Sign up</a></p>
+                <p class="switch">For Staffer, Staff, Faculty Member: <br><a href="Sign-In-2-page.html">Sign Up here!</a></p>
             </form> 
         </div>
     </main>
 
-    <script src="/assets/js/login.js"></script>
+    <script src="../../js/login.js"></script>
+
 </body>
 </html>
