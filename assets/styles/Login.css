@@ -59,6 +59,12 @@ nav a {
     box-shadow: 0 6px 20px rgba(247, 32, 4, 0.4);
 }
 
+.form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
 .form input {
     width: 100%;
     padding: 14px;

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SportsEQ</title>
 
-<link rel="stylesheet" href="/assets/styles/Signin.css">
+<link rel="stylesheet" href="../../styles/Signin.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     <div class="contain">
 
         
-        <form class="form" action="/assets/pages/Login-signup/verification.html" method="GET">
+        <form class="form" id="signupForm">
 
             <h2>Sign Up</h2>
 
@@ -34,7 +34,7 @@
                 <option>Student</option>
             </select>
 
-            <select required>
+            <select id="collegeDept" required>
                 <option value="" disabled selected>Select College Department</option>
                 <option>College of Computing Studies</option>
                 <option>College of Engineering</option>
@@ -42,12 +42,8 @@
                 <option>College of Nursing</option>
             </select>
 
-            <select required>
+            <select id="courseSelect" required>
                 <option value="" disabled selected>Select Course</option>
-                <option>BS Information Technology</option>
-                <option>BS Computer Science</option>
-                <option>BS Civil Engineering</option>
-                <option>BS Nursing</option>
             </select>
 
             <input type="text" placeholder="Full Name" required>
@@ -70,5 +66,6 @@
     </div>
 </main>
 
+<script src="../../scripts/Signup.js"></script>
 </body>
 </html>
