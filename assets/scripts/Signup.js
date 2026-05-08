@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. DATABASE NG MGA COURSES (Eksaktong binigay mo)
     const coursesByDept = {
-        "Computing": ["Computer Science", "Act Ad", "Nt"],
-        "Engineering": ["Electrical Engineering", "Bisystem Engineering", "Mechanical Engineering", "Civil Engineering"]
+        "College of Computing Studies": ["Computer Science", "Act Ad", "Nt"],
+        "College of Engineering": ["Electrical Engineering", "Bisystem Engineering", "Mechanical Engineering", "Civil Engineering"]
     };
 
     // 2. DYNAMIC DROPDOWN LOGIC
