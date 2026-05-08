@@ -12,17 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('emailInput').value;
             const password = document.getElementById('passInput').value;
 
+            const savedEmail = localStorage.getItem('registeredEmail');
+            const savedPass = localStorage.getItem('registeredPass');
+
             // Simple validation: Kung may laman ang fields, papasukin sa system
-            if (email !== "" && password !== "") {
-                console.log("Login successful. Redirecting to main page...");
-                
-                /* IMPORTANT PATHING:
-                   Dahil ang HTML mo ay nasa 'assets/pages/Login-signup/', 
-                   kailangan mong lumabas ng TATLONG folders para makarating sa root 'index.html'.
-                */
+            if (emailInput === savedEmail && passInput === savedPass) {
+                alert("Login Successful! Welcome to SportsEQ.");
                 window.location.href = "../../../index.html"; 
             } else {
-                alert("Please enter your credentials.");
+                alert("Invalid Email or Password. Please use the account you registered.");
             }
         });
     }
