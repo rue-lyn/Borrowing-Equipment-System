@@ -1,171 +1,39 @@
-/* RESET + GLOBAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Playfair Display;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Playfair Display', serif; }
 
-/* MAIN BACKGROUND */
 main {
     min-height: 100vh;
     background: url('../images/main-pic/background.png') no-repeat center center/cover;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
+    display: flex; justify-content: center; align-items: center; padding: 20px;
 }
 
-/* HEADER */
-header {
-    background-color: #f72004e7;
-    height: 80px;
-    padding: 0 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header h1 {
-    color: white;
-    font-size: 28px;
-}
-
-/* ONLY HEADER IMAGE (not global) */
-header img {
-    height: 60px;
-    width: auto;
-    border-radius: 12px;
-}
-
-/* NAV */
-nav {
-    height: 45px;
-    background-color: #cc0000da;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: sticky;
-    top: 0;
-}
-
-nav a {
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
-/* CONTAINER */
 .contain {
-    width: 100%;
-    max-width: 900px;
-
-    margin: 0 auto;
-    background: #f5f5f0;
-
-    padding: 50px;
-    border-radius: 18px;
-
-    box-shadow: 0 6px 20px rgba(247, 32, 4, 0.4);
+    width: 100%; max-width: 450px; background: #f5f5f0;
+    padding: 30px; border-radius: 18px; box-shadow: 0 6px 20px rgba(247, 32, 4, 0.4);
 }
 
-/* FORM */
-.form {
-    width: 100%;
+.input-group { position: relative; width: 100%; margin-bottom: 15px; }
+
+.form input, .form select {
+    width: 100%; padding: 12px; border-radius: 8px;
+    border: 1px solid #ccc; outline: none; transition: 0.3s;
 }
 
-/* TITLE */
-.form h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 26px;
+/* ERROR STATES */
+.error-border { border: 2px solid #ff0000 !important; background-color: #fff2f2; }
+
+.error-icon {
+    position: absolute; right: 10px; top: 12px; color: #ff0000;
+    font-weight: bold; display: none; /* Lalabas lang kapag may error */
 }
 
-/* INPUT + SELECT (UNIFIED STYLE) */
-.form input,
-.form select {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 15px;
-
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+.error-text {
+    color: #ff0000; font-size: 10px; display: none; /* Lalabas lang kapag may error */
+    margin-top: 2px; margin-left: 5px;
 }
 
-/* BUTTON */
-.form button {
-    width: 100%;
-    padding: 14px;
-
-    border: none;
-    border-radius: 8px;
-
-    background: #f72004e7;
-    color: white;
-    font-weight: bold;
-
-    cursor: pointer;
-    transition: 0.3s;
+button {
+    width: 100%; padding: 14px; background: #f72004e7;
+    color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;
 }
 
-.form button:hover {
-    background: #cc0000;
-}
-
-/* REMOVE UNUSED STYLE */
-button a {
-    display: none;
-}
-
-/* SWITCH TEXT */
-.switch {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #333;
-}
-
-.switch a {
-    color: #cc0000;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-/* I-dagdag ito sa dulo ng iyong Signin.css */
-.error-border {
-    border: 2px solid #ff0000 !important; /* Gagawing pula ang border */
-    background-color: #fff2f2; /* Bahagyang mapula ang loob para halata */
-}
-
-.error-message {
-    color: #ff0000;
-    font-size: 12px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    display: block;
-    text-align: left;
-}
-
-/* 📱 RESPONSIVE FIX */
-@media (max-width: 768px) {
-    .contain {
-        padding: 30px;
-        max-width: 95%;
-    }
-}
-
-@media (max-width: 480px) {
-    .contain {
-        padding: 20px;
-    }
-
-    header h1 {
-        font-size: 18px;
-    }
-}
+button:hover { background: #cc0000; }
