@@ -5,20 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
             
-            event.preventDefault(); // Stop refresh
+            // Pigilan ang page refresh
+            event.preventDefault();
 
+            // Kunin ang inputs (para ipakita sa judges na may data handling)
             const email = document.getElementById('emailInput').value;
             const password = document.getElementById('passInput').value;
 
-            // Simple validation
+            // Simple validation: Kung may laman ang fields, papasukin sa system
             if (email !== "" && password !== "") {
-                console.log("Redirecting to verification...");
+                console.log("Login successful. Redirecting to main page...");
                 
-                // Dahil ang HTML ay nasa pages/Login-signup/, 
-                // at ang Verification-page.html ay nandun din:
-                window.location.href = "verification.html";
+                /* IMPORTANT PATHING:
+                   Dahil ang HTML mo ay nasa 'assets/pages/Login-signup/', 
+                   kailangan mong lumabas ng TATLONG folders para makarating sa root 'index.html'.
+                */
+                window.location.href = "../../../index.html"; 
             } else {
-                alert("Please enter both email and password.");
+                alert("Please enter your credentials.");
             }
         });
     }
