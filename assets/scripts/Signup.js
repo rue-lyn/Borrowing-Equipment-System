@@ -1,51 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     const deptSelect = document.getElementById('collegeDept');
     const courseSelect = document.getElementById('courseSelect');
-    const signupForm = document.getElementById('signupForm');
 
-    // Object list ng mga courses bawat department
-    const courseData = {
-        "CCS": ["BS Information Technology", "BS Computer Science"],
-        "COE": ["BS Civil Engineering", "BS Mechanical Engineering", "BS Electrical Engineering"],
-        "CED": ["BEEd Elementary Education", "BSEd Secondary Education"],
-        "CON": ["BS Nursing"]
+    // 1. Database of Courses (Exact as per your example)
+    const coursesByDept = {
+        "Computing": ["Computer Science", "Act Ad", "Nt"],
+        "Engineering": ["Electrical Engineering", "Bisystem Engineering", "Mechanical Engineering", "Civil Engineering"]
     };
 
-    // Function para mag-update ng courses
+    // 2. Event Listener para sa pagbabago ng Department
     deptSelect.addEventListener('change', function() {
-        // 1. Linisin muna ang kasalukuyang courses
+        // Linisin ang Course dropdown tuwing magpapalit ng Department
         courseSelect.innerHTML = '<option value="" disabled selected>Select Course</option>';
 
-        // 2. Kunin ang napiling department key (e.g., "CCS")
+        // Kunin ang listahan base sa napiling value
         const selectedDept = this.value;
-        const courses = courseData[selectedDept];
+        const courses = coursesByDept[selectedDept];
 
-        // 3. I-loop ang mga courses at ilagay sa dropdown
+        // 3. I-populate ang Course dropdown
         if (courses) {
             courses.forEach(course => {
                 const option = document.createElement('option');
-                option.value = course;
-                option.textContent = course;
+                option.value = course; // Value na ipapadala sa system
+                option.textContent = course; // Text na makikita ng user
                 courseSelect.appendChild(option);
             });
         }
     });
 
-    // Sign Up Submission Logic
+    // 4. Sign Up Form Logic (Redirecting to Dashboard/Main Part)
+    const signupForm = document.getElementById('signupForm');
     if (signupForm) {
-        signupForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             const password = document.getElementById('pass').value;
-            const confirmPassword = document.getElementById('confirmPass').value;
+            const confirmPass = document.getElementById('confirmPass').value;
 
-            if (password !== confirmPassword) {
+            if (password !== confirmPass) {
                 alert("Passwords do not match!");
                 return;
             }
 
-            alert("Account Created Successfully!");
-            window.location.href = "../../../index.html";
+            alert("Account Successfully Created!");
+            window.location.href = "../../../index.html"; // Papunta sa main part
         });
     }
 });
