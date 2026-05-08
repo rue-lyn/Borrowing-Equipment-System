@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Dahil ang HTML ay nasa pages/Login-signup/, 
                 // at ang Verification-page.html ay nandun din:
-                window.location.href = "Verification-page.html";
+                window.location.href = "verification.html";
             } else {
                 alert("Please enter both email and password.");
             }
