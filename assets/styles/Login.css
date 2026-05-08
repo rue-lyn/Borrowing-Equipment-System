@@ -4,20 +4,17 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Playfair Display', serif; /* Siguraduhing may link ka ng font na ito */
+}
+
 main {
-    min-height: 100vh;
+    min-height: calc(100vh - 125px); /* Header(80px) + Nav(45px) = 125px */
     background: url('../images/main-pic/background.png') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    box-sizing: border-box;
-}
-
-header h1 {
-    color: white;
-    font-family: Playfair Display;
-    font-size: 30px;
 }
 
 header {
@@ -32,14 +29,7 @@ header {
 
 header h1 {
     color: white;
-    font-family: Playfair Display;
     font-size: 30px;
-}
-
-img {
-    height: 70px;
-    width: 80px;
-    border-radius: 24px;
 }
 
 nav {
@@ -58,39 +48,15 @@ nav a {
     font-weight: bold;
     padding: 12px;
     color: white;
-    font-family: Playfair Display;
 }
-
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-
-
 
 .contain {
     width: 100%;
-    max-width: 900px; 
-    margin: 0 auto;
+    max-width: 450px; /* Mas fit sa login form kaysa sa 900px */
     background: #f5f5f0;
-    padding: 50px;     
+    padding: 40px;     
     border-radius: 18px;
     box-shadow: 0 6px 20px rgba(247, 32, 4, 0.4);
-    box-sizing: border-box;
-}
-
-
-
-.form button:hover,
-.admin button:hover {
-    background: #cc0000;
-}
-
-
-.form {
-    width: 100%;
 }
 
 .form input {
@@ -99,47 +65,43 @@ a {
     margin-bottom: 15px;
     border-radius: 8px;
     border: 1px solid #ccc;
+    outline: none;
 }
 
-
-
-
-h1, h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 26px;
+.form input:focus {
+    border-color: #f72004e7;
 }
 
-button {
-    font-family: Playfair Display;
+button, .admin-btn {
+    text-decoration: none;
     color: white;
     background: #f72004e7;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
+    display: inline-block;
 }
 
 .login-btn {
     width: 100%;
     padding: 14px;
     font-size: 16px;
+    font-weight: bold;
 }
 
 .admin-btn {
-    width: auto;
-    padding: 6px 14px;
-    font-family: Playfair Display;
-    font-size: 30px;
+    padding: 8px 16px;
+    font-size: 18px;
 }
 
-.admin-btn:hover {
+.login-btn:hover, .admin-btn:hover {
     background: #cc0000;
 }
 
-
 .switch {
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center;
     font-size: 14px;
     color: #333;
@@ -148,4 +110,5 @@ button {
 .switch a {
     color: #cc0000;
     font-weight: bold;
+    text-decoration: none;
 }
