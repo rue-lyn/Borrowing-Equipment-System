@@ -1,23 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
     const loginForm = document.getElementById('loginForm');
 
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
-            
-            // Pigilan ang page refresh
             event.preventDefault();
 
-            // Kunin ang inputs (para ipakita sa judges na may data handling)
+            // Kunin ang tinype sa login boxes
             const email = document.getElementById('emailInput').value;
             const password = document.getElementById('passInput').value;
 
+            // Kunin ang data mula sa localStorage (yung galing sa signup)
             const savedEmail = localStorage.getItem('registeredEmail');
             const savedPass = localStorage.getItem('registeredPass');
 
-            // Simple validation: Kung may laman ang fields, papasukin sa system
-            if (emailInput === savedEmail && passInput === savedPass) {
+            // I-verify kung tugma
+            if (email === savedEmail && password === savedPass) {
                 alert("Login Successful! Welcome to SportsEQ.");
+                // Papunta sa main index ng system
                 window.location.href = "../../../index.html"; 
             } else {
                 alert("Invalid Email or Password. Please use the account you registered.");

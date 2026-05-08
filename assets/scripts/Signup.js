@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Get Values
         const email = document.getElementById('signupEmail').value;
         const fullName = document.getElementById('fullName').value.trim();
         const adviserName = document.getElementById('adviserName').value.trim();
@@ -33,18 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('pass').value;
         const confirmPass = document.getElementById('confirmPass').value;
 
-        // A. Full Name Validation (Check if there are at least two words)
-        const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+/;
-        if (!nameRegex.test(fullName)) {
+        // A. Full Name Validation (Dapat may Space para malaman kung First at Last name)
+        if (!fullName.includes(" ")) {
             alert("Please enter your full name (First name and Last name).");
             return;
         }
-        if (!nameRegex.test(adviserName)) {
+        if (!adviserName.includes(" ")) {
             alert("Please enter your adviser's full name (First name and Last name).");
             return;
         }
 
-        // B. Student ID Validation (Must be exactly 9 digits)
+        // B. Student ID Validation
         if (studentID.length < 9) {
             alert("The ID is not enough (Must be 9 digits).");
             return;
@@ -53,9 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // C. Password Length (8-12 characteristics)
+        // C. Password Length (8-12)
         if (password.length < 8 || password.length > 12) {
-            alert("Password must be between 8 to 12 characters.");
+            alert("Password must be 8-12 characters long.");
             return;
         }
 
@@ -65,11 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // E. STORAGE LOGIC (Saving credentials for Login)
+        // E. SAVE TO LOCALSTORAGE
         localStorage.setItem('registeredEmail', email);
         localStorage.setItem('registeredPass', password);
 
-        alert("Account Created Successfully! Redirecting to Login...");
+        alert("Account Created Successfully! You can now login.");
         window.location.href = "Log-In-page.html";
     });
 });

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SportsEQ</title>
-
-<link rel="stylesheet" href="../../styles/Signin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsEQ - Sign Up</title>
+    <link rel="stylesheet" href="../../styles/Signin.css">
 </head>
-
 <body>
 
 <header>
-    <img src="../assets/images/main-pic/logo.png" alt="">
+    <img src="../../images/main-pic/logo.png" alt="Logo">
     <h1>Borrow Equipment Fast and Easy</h1>
 </header>
 
@@ -21,25 +19,15 @@
 
 <main>
     <div class="contain">
-
-        
         <form class="form" id="signupForm">
-
             <h2>Sign Up</h2>
 
-            <input type="email" placeholder="WMSU Email" required>
-
-            <select required>
-                <option value="" disabled selected>Select Occupation</option>
-                <option>Student</option>
-            </select>
+            <input type="email" id="signupEmail" placeholder="WMSU Email" required>
 
             <select id="collegeDept" required>
                 <option value="" disabled selected>Select College Department</option>
-                <option>College of Computing Studies</option>
-                <option>College of Engineering</option>
-                <option>College of Education</option>
-                <option>College of Nursing</option>
+                <option value="College of Computing Studies">College of Computing Studies</option>
+                <option value="College of Engineering">College of Engineering</option>
             </select>
 
             <select id="courseSelect" required>
@@ -53,16 +41,12 @@
             <input type="password" id="pass" placeholder="Password (8-12 characters)" required>
             <input type="password" id="confirmPass" placeholder="Confirm Password" required>
 
-            
             <button type="submit">Sign Up</button>
 
             <p class="switch">
-                Already have an account?
-                <a href="Log-In-page.html">Login</a>
+                Already have an account? <a href="Log-In-page.html">Login</a>
             </p>
-
         </form>
-
     </div>
 </main>
 
