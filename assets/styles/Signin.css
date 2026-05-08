@@ -137,6 +137,21 @@ button a {
     text-decoration: none;
 }
 
+/* I-dagdag ito sa dulo ng iyong Signin.css */
+.error-border {
+    border: 2px solid #ff0000 !important; /* Gagawing pula ang border */
+    background-color: #fff2f2; /* Bahagyang mapula ang loob para halata */
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+
 /* 📱 RESPONSIVE FIX */
 @media (max-width: 768px) {
     .contain {
