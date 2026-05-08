@@ -71,12 +71,14 @@
 
             <div class="input-group">
                 <input type="password" id="pass" placeholder="Password (8-12 chars)" autocomplete="new-password" required>
+                <span class="toggle-password" onclick="togglePass('pass')">👁️</span>
                 <span class="error-icon">!</span>
                 <small class="error-text">Must be 8-12 characters.</small>
             </div>
 
             <div class="input-group">
                 <input type="password" id="confirmPass" placeholder="Confirm Password" autocomplete="new-password" required>
+                <span class="toggle-password" onclick="togglePass('confirmPass')">👁️</span>
                 <span class="error-icon">!</span>
                 <small class="error-text">Passwords do not match.</small>
             </div>

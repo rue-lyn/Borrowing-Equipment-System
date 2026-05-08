@@ -1,3 +1,16 @@
+// Function for Show/Hide Password
+function togglePass(id) {
+    const passwordInput = document.getElementById(id);
+    const toggleIcon = passwordInput.parentElement.querySelector('.toggle-password');
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.textContent = "🙈";
+    } else {
+        passwordInput.type = "password";
+        toggleIcon.textContent = "👁️";
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signupForm');
     const emailInput = document.getElementById('signupEmail');
@@ -37,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Anti-Autofill Hijack
+    // 2. Anti-Autofill Hijack (Focusing on Full Name)
     let isSelectingEmail = false;
     emailInput.addEventListener('mousedown', () => {
         isSelectingEmail = true;
@@ -66,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Listeners
+    // Input Listeners
     fullNameInput.addEventListener('input', function() { validate(this, !this.value.trim().includes(" ")); });
     adviserNameInput.addEventListener('input', function() { if(!isSelectingEmail) validate(this, !this.value.trim().includes(" ")); });
     document.getElementById('studentID').addEventListener('input', function() { validate(this, this.value.length !== 9); });
@@ -78,11 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
         if (document.querySelectorAll('.error-border').length > 0) {
-            alert("Please fix the errors first!");
+            alert("Please fix the red fields first!");
         } else {
             localStorage.setItem('registeredEmail', emailInput.value);
             localStorage.setItem('registeredPass', pass.value);
-            localStorage.setItem('isVerified', 'false'); // Pending Admin Approval
+            localStorage.setItem('isVerified', 'false'); 
             alert("Account created! Redirecting for Admin Verification...");
             window.location.href = "Verification-page.html";
         }
