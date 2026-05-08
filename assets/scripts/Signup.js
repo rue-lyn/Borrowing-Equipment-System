@@ -1,28 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signupForm');
-    const deptSelect = document.getElementById('collegeDept');
-    const courseSelect = document.getElementById('courseSelect');
+    const emailInput = document.getElementById('signupEmail');
+    const fullNameInput = document.getElementById('fullName');
+    const adviserNameInput = document.getElementById('adviserName');
 
-    // 1. Course Data
-    const coursesByDept = {
-        "College of Computing Studies": ["Computer Science", "Act Ad", "Nt"],
-        "College of Engineering": ["Electrical Engineering", "Bisystem Engineering", "Mechanical Engineering", "Civil Engineering"]
-    };
-
-    // 2. Cascading Dropdown
-    deptSelect.addEventListener('change', function() {
-        courseSelect.innerHTML = '<option value="" disabled selected>Select Course</option>';
-        const courses = coursesByDept[this.value];
-        if (courses) {
-            courses.forEach(c => {
-                let opt = document.createElement('option');
-                opt.value = c; opt.textContent = c;
-                courseSelect.appendChild(opt);
-            });
-        }
+    // 1. AUTOFILL LOGIC
+    // Kapag pinili ang gmail sa choices, binabantayan natin kung may pumasok na value
+    emailInput.addEventListener('change', () => {
+        // Binibigyan natin ng kaunting delay (100ms) para hayaan ang browser na mag-autofill muna
+        setTimeout(() => {
+            if (adviserNameInput.value !== "" && fullNameInput.value === "") {
+                // Kung aksidenteng napunta sa adviser name, ilipat natin sa full name
+                fullNameInput.value = adviserNameInput.value;
+                adviserNameInput.value = ""; // Linisin ang adviser name
+            }
+        }, 100);
     });
 
-    // 3. Helper Function for Real-time Validation
+    // 2. REAL-TIME VALIDATION HELPER
     const validate = (input, condition) => {
         const icon = input.parentElement.querySelector('.error-icon');
         const text = input.parentElement.querySelector('.error-text');
@@ -37,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 4. Input Listeners (Real-time checks)
-    document.getElementById('fullName').addEventListener('input', function() {
+    // 3. REAL-TIME LISTENERS
+    fullNameInput.addEventListener('input', function() {
         validate(this, !this.value.trim().includes(" "));
     });
 
-    document.getElementById('adviserName').addEventListener('input', function() {
+    adviserNameInput.addEventListener('input', function() {
         validate(this, !this.value.trim().includes(" "));
     });
 
@@ -59,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         validate(this, this.value !== pass.value);
     });
 
-    // 5. Final Submit
+    // 4. SUBMIT LOGIC
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const errors = document.querySelectorAll('.error-border');
@@ -67,12 +62,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (errors.length > 0) {
             alert("Please fix the red fields first!");
         } else {
-            // Save for login
-            localStorage.setItem('registeredEmail', document.getElementById('signupEmail').value);
+            localStorage.setItem('registeredEmail', emailInput.value);
             localStorage.setItem('registeredPass', pass.value);
-            
             alert("Account Created!");
             window.location.href = "Log-In-page.html";
+        }
+    });
+
+    // CASCADING DROPDOWN (Computing vs Engineering)
+    const deptSelect = document.getElementById('collegeDept');
+    const courseSelect = document.getElementById('courseSelect');
+    const coursesByDept = {
+        "College of Computing Studies": ["Computer Science", "Act Ad", "Nt"],
+        "College of Engineering": ["Electrical Engineering", "Bisystem Engineering", "Mechanical Engineering", "Civil Engineering"]
+    };
+
+    deptSelect.addEventListener('change', function() {
+        courseSelect.innerHTML = '<option value="" disabled selected>Select Course</option>';
+        const courses = coursesByDept[this.value];
+        if (courses) {
+            courses.forEach(c => {
+                let opt = document.createElement('option');
+                opt.value = c; opt.textContent = c;
+                courseSelect.appendChild(opt);
+            });
         }
     });
 });
